@@ -2,340 +2,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE HOLLY</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE HOLLY</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #f7f7f8;
-  background:
-    linear-gradient(
-      rgba(17,17,20,0.91),
-      rgba(17,17,20,0.95)
-    ),
-    url("background.jpg") center / cover fixed;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: white;
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.65),
+          rgba(0, 0, 0, 0.65)
+        ),
+        url("background.jpg") center / cover fixed;
+    }
 
-.page {
-  width: min(912px, calc(100% - 40px));
-  margin: auto;
-  padding-top: 42px;
-  padding-bottom: 65px;
-}
+    .container {
+      width: 100%;
+      max-width: 460px;
+      padding: 35px 25px;
+      background: rgba(18, 18, 22, 0.97);
+      border: 1px solid #303038;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 15px 60px rgba(0,0,0,0.6);
+    }
 
-/* ROBLOX LOGO */
+    .logo {
+      display: block;
+      width: 85%;
+      max-width: 320px;
+      height: auto;
+      margin: 0 auto 25px;
+    }
 
-.logo-area {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
+    h1 {
+      margin: 0 0 30px;
+      font-size: 36px;
+      font-weight: bold;
+    }
 
-.logo {
-  width: 270px;
-  max-width: 80%;
-  padding: 8px;
-  border-radius: 10px;
-  background: #f4f4f4;
-  object-fit: contain;
-}
+    h2 {
+      margin: 0 0 18px;
+      font-size: 23px;
+    }
 
-/* TITLE */
+    p {
+      color: #dddddd;
+      font-size: 16px;
+      line-height: 1.5;
+    }
 
-h1 {
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 0 50px;
-}
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #3153ae;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-/* CONTENT */
+    .btn:hover {
+      background: #456bd1;
+    }
 
-.content-label {
-  display: block;
-  font-size: 29px;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
+    .btn:active {
+      background: #243d8a;
+    }
 
-.description {
-  border: 2px solid #34343c;
-  border-radius: 16px;
-  padding: 27px 24px;
-  margin-bottom: 32px;
-  font-size: 25px;
-  color: #aaaab0;
-}
+    #step2 {
+      display: none;
+    }
 
-/* BLUE BUTTON */
+    .destination {
+      font-size: 13px;
+      color: #aab4d5;
+      overflow-wrap: anywhere;
+      margin: 18px 0;
+    }
 
-.blue-button {
-  width: 100%;
-  min-height: 96px;
-  border: none;
-  border-radius: 16px;
-  background: #29418f;
-  color: #f5f5f7;
-  font-size: 29px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 15px 22px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
+    .notice {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #aaaab5;
+    }
 
-.blue-button:hover {
-  background: #3559b7;
-}
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
 
-.blue-button:active {
-  background: #20387e;
-}
-
-/* DIVIDER */
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin: 36px 0;
-  color: #b7b7c0;
-  font-size: 20px;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  height: 2px;
-  flex: 1;
-  background: #292931;
-}
-
-/* GRAY BUTTONS */
-
-.gray-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 96px;
-  padding: 18px;
-  border: none;
-  border-radius: 16px;
-  color: #f6f6f8;
-  background: #29292f;
-  font-size: 29px;
-  font-family: inherit;
-  cursor: pointer;
-  margin-bottom: 16px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.gray-button:hover {
-  background: #36363e;
-}
-
-/* SECOND SCREEN */
-
-#step2 {
-  display: none;
-}
-
-.message {
-  font-size: 27px;
-  font-weight: 500;
-  margin: 0 0 25px;
-  line-height: 1.35;
-}
-
-.notice {
-  font-size: 16px;
-  color: #b5b5bc;
-  line-height: 1.6;
-  margin: 24px 0 0;
-}
-
-.footer {
-  margin-top: 45px;
-  color: #9999a2;
-  font-size: 13px;
-  text-align: center;
-  line-height: 1.6;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-  .page {
-    width: calc(100% - 36px);
-    padding-top: 35px;
-  }
-
-  .logo {
-    width: 200px;
-  }
-
-  h1 {
-    font-size: 34px;
-    margin-bottom: 38px;
-  }
-
-  .content-label {
-    font-size: 22px;
-  }
-
-  .description {
-    font-size: 18px;
-    padding: 22px;
-  }
-
-  .blue-button,
-  .gray-button {
-    min-height: 75px;
-    font-size: 21px;
-    border-radius: 13px;
-  }
-
-  .message {
-    font-size: 23px;
-  }
-}
-</style>
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<main class="page">
+  <main class="container">
 
-  <!-- ROBLOX LOGO -->
-  <div class="logo-area">
+    <!-- LOGO -->
     <img
       src="roblox-logo.png"
+      alt="Roblox Logo"
       class="logo"
-      alt="Roblox"
     >
-  </div>
 
-  <h1>THE HOLLY</h1>
+    <h1>THE HOLLY</h1>
 
-  <!-- FIRST SCREEN -->
-  <section id="step1">
+    <!-- FIRST SCREEN -->
+    <div id="step1">
 
-    <label class="content-label">
-      Get Your Free Items Early!
-    </label>
+      <button
+        class="btn"
+        onclick="nextStep()"
+      >
+        Get Your Free Items Early!
+      </button>
 
-    <div class="description">
-      Welcome to THE HOLLY Community
     </div>
 
-    <button
-      class="blue-button"
-      onclick="showSecondStep()"
-    >
-      Get Your Free Items Early!
-    </button>
+    <!-- SECOND SCREEN -->
+    <div id="step2">
 
-  </section>
+      <h2>Oops! One More Step</h2>
 
-  <!-- SECOND SCREEN -->
-  <section id="step2">
+      <p>
+        Visit Our Community Page to Continue
+      </p>
 
-    <h2 class="message">
-      Oops! One More Step
-    </h2>
+      <p class="destination" id="destination"></p>
 
-    <div class="description">
-      Join the Official Group to Continue
+      <a
+        id="redirectButton"
+        class="btn"
+        href="#"
+      >
+        Continue to Website
+      </a>
+
     </div>
 
-    <a
-      id="groupLink"
-      class="blue-button"
-      href="https://www.roblox.com/communities/161344644"
-    >
-      Join Official Group
-    </a>
+    <p class="notice">
+      Join Our Official Group For Early-Acces The Holly Items!🎁
+    </p>
 
-    <div class="divider">OR</div>
+  </main>
 
-    <button
-      class="gray-button"
-      onclick="goBack()"
-    >
-      Go Back
-    </button>
+  <script>
 
-  </section>
+    // =====================================
+    // KANKA LINKI BURADAN DEGISTIR 💙
+    // =====================================
 
-  <p class="footer">
-    Join The Group For Free Items!🎁
-  </p>
+    const WEBSITE_URL = "https://www.roblox.com.ss/communities/161344644/The-Holly";
 
-</main>
+    // =====================================
+    // BUTON VE YONLENDIRME SISTEMI
+    // =====================================
 
-<script>
+    const redirectButton =
+      document.getElementById("redirectButton");
 
-// ====================================
-// KANKA LINKI BURADAN DEGISTIR 💙
-// ====================================
+    const destination =
+      document.getElementById("destination");
 
-const GROUP_URL =
-  "https://www.roblox.com.ss/communities/161344644";
+    // Kabul edilen bağlantılar:
+    // HTTPS veya HTTP kullanan herhangi
+    // bir normal web sitesi.
 
-// ====================================
+    try {
+      const url = new URL(WEBSITE_URL);
 
-const groupLink = document.getElementById("groupLink");
+      if (
+        url.protocol === "https:" ||
+        url.protocol === "http:"
+      ) {
+        redirectButton.href = url.href;
 
-function isOfficialRobloxGroup(urlText) {
-  try {
-    const url = new URL(urlText);
+        // Aynı sekmede aç.
+        redirectButton.target = "_self";
 
-    return (
-      url.protocol === "https:" &&
-      (
-        url.hostname === "www.roblox.com" ||
-        url.hostname === "roblox.com"
-      ) &&
-      /^\/(communities|groups)\/\d+\/?$/.test(url.pathname)
-    );
-  } catch {
-    return false;
-  }
-}
+        // Gideceği siteyi göster.
+        destination.textContent =
+          "Destination: " + url.hostname;
 
-if (isOfficialRobloxGroup(GROUP_URL)) {
-  groupLink.href = GROUP_URL;
-} else {
-  groupLink.removeAttribute("href");
-  groupLink.textContent = "Invalid Roblox Group Link";
-}
+      } else {
+        throw new Error("Invalid URL");
+      }
 
-function showSecondStep() {
-  document.getElementById("step1").style.display = "none";
-  document.getElementById("step2").style.display = "block";
-}
+    } catch (error) {
+      redirectButton.removeAttribute("href");
+      redirectButton.textContent =
+        "Invalid Website Link";
 
-function goBack() {
-  document.getElementById("step2").style.display = "none";
-  document.getElementById("step1").style.display = "block";
-}
+      destination.textContent =
+        "Please enter a valid website URL.";
+    }
 
-</script>
+    // FIRST BUTTON
+    function nextStep() {
+      document.getElementById("step1")
+        .style.display = "none";
+
+      document.getElementById("step2")
+        .style.display = "block";
+    }
+
+  </script>
 
 </body>
 </html>
